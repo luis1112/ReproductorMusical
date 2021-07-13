@@ -1,0 +1,29 @@
+<div class="container">
+    <form action="/album/saveAlbum" method="POST">
+        <h3 class="text-center">Agregar Album</h3>
+        <%- locals.flash %>
+        <div class="form-group">
+            <input type="text" name="title" placeholder="Título del Album" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <textarea name="description" placeholder="Descripción del Album" cols="30" rows="10"
+                class="form-control" required></textarea>
+        </div>
+        <div class="form-group">
+            <input type="number" min="1950" max="<%=year.getFullYear()%>" name="year" placeholder="Año de Publicación" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="artist">Seleccionar Artista</label>
+            <select name="artist" class="form-control" id="artistList" required>
+                <%artists.forEach(function(artist){%>
+                <option value="<%=artist.id%>"><%=artist.name%></option>
+                <%});%>
+            </select>
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success btn-block">
+                Guardar
+            </button>
+        </div>
+    </form>
+</div>

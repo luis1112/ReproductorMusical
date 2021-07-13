@@ -1,0 +1,23 @@
+<div class="container">
+    <h3 class="text-center">Agregar Imagen de Artista</h3>
+    <%-locals.flash%>
+    <form action="/artist/upload-image-artist" enctype="multipart/form-data" method="POST">
+        <div class="form-group">
+            <label for="artist">Seleccionar Artista</label>
+            <select name="external" class="form-control" id="artistImage">
+                <%artists.forEach(function(artist){%>
+                <option value="<%=artist.external_id%>"><%=artist.name%></option>
+                <%});%>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="image">Selecciona la Imagen que deseas subir</label>
+            <input type="file" name="image" placeholder="Nombres" class="form-control">
+        </div>
+        <div class="form-group">
+            <button class="btn btn-success btn-block">
+                Subir Imagen
+            </button>
+        </div>
+    </form>
+</div>
